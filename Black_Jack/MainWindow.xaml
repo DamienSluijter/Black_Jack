@@ -1,0 +1,167 @@
+﻿<Window x:Class="Black_Jack.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Black_Jack"
+        mc:Ignorable="d"
+        Title="BlackJack" Height="450" Width="900">
+
+    <Grid Background="Gray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.35*"/>
+        </Grid.RowDefinitions>
+
+        <Viewbox Grid.Row="5">
+            <Label Content="Speler" FontSize="20" FontFamily="Impact" Foreground="White" Margin="5"></Label>
+        </Viewbox>
+        <Viewbox Grid.Column="6" Grid.Row="5" >
+            <Label Content="Bank" FontSize="40" FontFamily="Impact" Foreground="White" Margin="5"></Label>
+        </Viewbox>
+        <Viewbox Grid.Row="3">
+            <Label Name="lblPlayerPoints" Content="0" Height="50" Width="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="35" FontFamily="Impact" Foreground="White"></Label>
+        </Viewbox>
+        <Viewbox Grid.Column="6" Grid.Row="3">
+            <Label Name="lblDealerPoints" Content="0" Height="50" Width="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="35" FontFamily="Impact" Foreground="White"></Label>
+        </Viewbox>
+        <Viewbox Grid.Row="4" >
+            <Label Name="lblSpelerText" Width="150" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontFamily="Impact" Foreground="Black"></Label>
+        </Viewbox>
+        <Viewbox Grid.Column="6" Grid.Row="4" >
+            <Label Name="lblBankText" Width="150" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontFamily="Impact" Foreground="Black"></Label>
+        </Viewbox>
+        <Viewbox Grid.Column="1" Grid.Row="4">
+            <Label Name="lblInzet" Content="Inzet" Width="70" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="25" FontFamily="Impact" Foreground="White"></Label>
+        </Viewbox>
+        <Viewbox Grid.Column="5" Grid.Row="4" >
+            <Label Name="lblKapitaal" Content="Kapitaal" Width="140" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="25" FontFamily="Impact" Foreground="White"></Label>
+        </Viewbox>
+        <Viewbox Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="3" >
+            <Label Name="lblDoubleInzet" Height="40" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="25"  FontFamily="Impact" Foreground="DarkOrange"></Label>
+        </Viewbox>
+        <Viewbox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5">
+            <Button Name="btnDeel" Content="DEEL" Height="60" Width="110" Margin="10" FontSize="20" FontFamily="Impact" Background="DimGray" Foreground="LightGray" Click="BtnDeel_Click" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"></Button>
+        </Viewbox>
+        <Viewbox Grid.Column="3" Grid.Row="5">
+            <Button Name="btnHit" Content="HIT" Height="60" Width="110" Margin="10" FontSize="20" FontFamily="Impact" Background="DimGray" Foreground="LightGray" Click="BtnHit_Click" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" IsEnabled="False"></Button>
+        </Viewbox>
+        <Viewbox Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="5">
+            <Button Name="btnStand" Content="Stand" Height="60" Width="110" Margin="10" FontSize="20" FontFamily="Impact" Background="DimGray" Foreground="LightGray" Click="BtnStand_Click" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" IsEnabled="False"></Button>
+        </Viewbox>
+        <Viewbox Grid.Column="3" Grid.RowSpan="2" Grid.Row="2">
+            <Button Name="btnDoubleDown" Content="Double Down" Height="60" Width="150" FontSize="20" FontFamily="Impact" Background="DimGray" Margin="10" Foreground="LightGray" Click="BtnDoubleDown_Click" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" IsEnabled="False"></Button>
+        </Viewbox>
+        <Viewbox Grid.Column="3" Grid.RowSpan="2" Grid.Row="2">
+            <Button Name="btnReset" Content="Nieuw Spel" Height="60" Width="150" FontSize="20" FontFamily="Impact" Background="DimGray" Margin="10" Foreground="LightGray" Click="BtnReset_Click" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" Visibility="Collapsed"></Button>
+        </Viewbox>
+        <Viewbox Grid.Column="2" Grid.Row="4" >
+            <TextBox Name="txtStake" Width="30" Height="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="8"></TextBox>
+        </Viewbox>
+        <Viewbox Grid.Column="4" Grid.Row="4">
+            <TextBox Name="txtKapital" Text="100" Width="30" Height="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="8" IsEnabled="False"></TextBox>
+        </Viewbox>
+        <Viewbox Grid.Column="3" Grid.Row="1" >
+            <Image Width="70" Height="60" Source="Images/StapelKaarten.png"></Image>
+        </Viewbox>
+        <Viewbox Grid.Column="3" >
+            <Label Name="lblCardsInDeck" Content="52" Height="50" HorizontalContentAlignment="Center" Margin="5" FontSize="25" FontFamily="Impact" Foreground="White"></Label>
+        </Viewbox>
+        <Grid Name="GridSpeler" Background="Black" Grid.ColumnSpan="3" Grid.RowSpan="3">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Viewbox Grid.RowSpan="2">
+                <Image Name="imgSpelerCard1"/>
+            </Viewbox>
+            <Viewbox Grid.Column="1" Grid.RowSpan="2">
+                <Image Name="imgSpelerCard2"/>
+            </Viewbox>
+            <Viewbox Grid.Column="2" Grid.RowSpan="2">
+                <Image Name="imgSpelerCard3"/>
+            </Viewbox>
+            <Viewbox Grid.Row="2" Grid.RowSpan="2">
+                <Image Name="imgSpelerCard4"/>
+            </Viewbox>
+            <Viewbox Grid.Column="1" Grid.Row="2" Grid.RowSpan="2">
+                <Image Name="imgSpelerCard5"/>
+            </Viewbox>
+            <Viewbox Grid.Column="3" Grid.Row="2" Grid.RowSpan="2">
+                <Image Name="imgSpelerCard6"/>
+            </Viewbox>
+            <Viewbox  Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5">
+                <Viewbox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Viewbox.RenderTransform>
+                <Image Name="imgSpelerCard7"/>
+            </Viewbox>
+
+        </Grid>
+
+        <Grid Name="GridBank" Background="Black" Grid.Column="4" Grid.RowSpan="3" Grid.ColumnSpan="3">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <Viewbox Grid.RowSpan="2">
+                <Image Name="imgBankCard1"/>
+            </Viewbox>
+            <Viewbox Grid.Column="1" Grid.RowSpan="2">
+                <Image Name="imgBankCard2"/>
+            </Viewbox>
+            <Viewbox Grid.Column="2" Grid.RowSpan="2">
+                <Image Name="imgBankCard3"/>
+            </Viewbox>
+            <Viewbox Grid.Row="2" Grid.RowSpan="2">
+                <Image Name="imgBankCard4"/>
+            </Viewbox>
+            <Viewbox Grid.Column="1" Grid.Row="2" Grid.RowSpan="2">
+                <Image Name="imgBankCard5"/>
+            </Viewbox>
+            <Viewbox Grid.Column="2" Grid.Row="2" Grid.RowSpan="2">
+                <Image Name="imgBankCard6"/>
+            </Viewbox>
+        </Grid>
+
+        <Grid Name="StatusBalk" Grid.Row="6" Height="30" Grid.ColumnSpan="7" VerticalAlignment="Bottom" Background="DimGray">
+        </Grid>
+    </Grid>
+</Window>
